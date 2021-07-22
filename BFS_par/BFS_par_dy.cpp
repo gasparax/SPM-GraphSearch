@@ -165,8 +165,8 @@ void genericfarmstage(vector<Node *> &frontier,
 #endif
       for (int i = input_pair.first; i < input_pair.second; i++) {
         Node *node = frontier.at(i);
-        if (node->visited) continue;
-        node->visited = true;
+        bool expected = false;
+        if (!node->visited.compare_exchange_weak(expected, true))continue;
         local_counter += (int)(node->value == value);
         for (Node *nb : node->get_neighbours()) {
           if (nb->discovered) continue;
