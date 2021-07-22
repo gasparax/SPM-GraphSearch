@@ -1,5 +1,7 @@
 # SPM-Graph Search
 
+Project for SMP Exam 2020/21. Parallel version of BFS. 
+---
 In order to compile and run the solution follow the next steps:
 
 1. Compile the graph generator using the makefile in the graph directory:
