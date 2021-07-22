@@ -75,7 +75,7 @@ Using a dynamic approach for task management the load balancing is distributed e
 \caption{Load balancing of analysis, with dynamic scheduling, of the first frontier graph 10K 0.5 density}
 \end{table}
 
-The considerable gain in terms of load balancing removing the bottlenecks in the execution of the farm is counterbalanced by a increase time of the emitter $T_e$, as can been seen in the following tables \ref{table:emit_coll} and \ref{table:emit_coll_dy}.
+The considerable gain in terms of load balancing removing the bottlenecks in the execution of the farm is counterbalanced by a increase time of the emitter $T_e$, as can been seen in the following tables \ref{table:emit_coll} and \ref{table:emit_coll_dy}. The chunk size plays an important role, indeed, having small chunks improves the load balancing but the splitting time would increase dramatically, so it's important to find the trade-off. In addition, For large chunk sizes, in the case of small tiers, it might be possible to generate less than $nw$ portions and thus not fully exploit the farm.
 
 \begin{table}[!htb]
 \centering
@@ -146,7 +146,7 @@ NW \\ \hline
 1137       & 565      & 602      \\ \hline
 1524       & 1091     & 899      \\ \hline
 1465       & 2014     & 1131     \\ \hline
-2398      & 905      & 2120     \\ \hline
+2398      & 1940      & 2120     \\ \hline
 2614      & 2211     & 1047     \\ \hline
 7947      & 6751     & 3645     \\ \hline
 \end{tabular}
@@ -175,8 +175,8 @@ The Fast Flow solution is based on the same reasoning of the first C++ STL solut
 
 \begin{figure}[htb!]
     \centering
-    \includegraphics[width=0.75\textwidth]{Figures/FF.png}
-    \caption{Schema of the dynamic scheduling solution.}
+    \includegraphics[width=0.55\textwidth]{Figures/FF.png}
+    \caption{Schema of the Fast Flow solution.}
     \label{fig:FF}
 \end{figure}
 \FloatBarrier

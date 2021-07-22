@@ -14,7 +14,8 @@ Time ($\mu sec$)          & 21964     & 162399   & 359583   \\ \hline
 \end{table}
 \FloatBarrier
 
-The following plots show the performance trend of the proposed solutions, starting from the low dense graph.
+The following plots show the performance trend of the proposed solutions, starting from the low dense graph. The tests of the dynamic scheduling version were performed with chunk size of $32$, $64$ and $128$. 
+
 In this first graph, with density equal to $0.02$, all the four solution have the same behavior also for the performance drop around the $10$ workers. Moreover, the dynamic solution with chunk size of $128$ the knee point comes before due the smaller size of the frontiers.
 \begin{figure}[htb!]
     \centering
@@ -31,7 +32,7 @@ In this first graph, with density equal to $0.02$, all the four solution have th
     \label{fig:plot_speedup_10k_002}
 \end{figure}
 \FloatBarrier
-Growing density to $0.5$, and so the frontier size, the static version starts to suffer of load balancing problems mainly in with lower $nw$. Indeed, static approaches, the speedup growth is limited by the large size of the chunks that give the possibility to the first workers to visit most of the graph nodes creating a bottleneck. Meanwhile, dividing the frontier in smaller chunks provides the possibility to handle efficiently the free workers. 
+Growing density to $0.5$, and so the frontier size, the static version starts to suffer of load balancing problems mainly in with lower $nw$. Indeed, static approaches, the speedup growth is limited by the large size of the chunks that give the possibility to the first workers to visit most of the graph nodes creating a bottleneck. Meanwhile, dividing the frontier in smaller chunks provides the possibility to handle efficiently the free workers. In fact, the dynamic verison performance are better, in particular for the version with chunk with $32$ nodes.
 
 \begin{figure}[htb!]
     \centering
@@ -49,7 +50,7 @@ Growing density to $0.5$, and so the frontier size, the static version starts to
 \end{figure}
 \FloatBarrier
 
-The analysis of the last graph is almost the same and also in this case the Fast Flow version maintains a speedup margin about one point less than the version with static scheduling. This could be due to the task management by fast flow and for runs with many threads the need to re-execute $nw$ times the $svc$ method of the emitter with related checks. Also, for each new level of the graph the tasks are not reused but new ones are created, for very large frontiers this is a considerable overhead compared to the emitter in other versions (see table \ref{table:emit_coll}).
+The analysis of the last graph is almost the same and also in this case the Fast Flow version maintains a speedup margin about one point less than the version with static scheduling. This could be due to the task management by fast flow and for runs with many threads the need to re-execute $nw$ times the $svc$ method of the emitter with related checks. Also, for each new level of the graph the tasks are not reused but new ones are created, for very large frontiers this is a considerable overhead.
 
 \begin{figure}[htb!]
     \centering
@@ -66,6 +67,7 @@ The analysis of the last graph is almost the same and also in this case the Fast
     \label{fig:plot_speedup_10k_08}
 \end{figure}
 \FloatBarrier
+
 In the following tables you can see the speedup trend from a numerical point of view for all versions.
 \begin{table}[htb!]
 \centering
@@ -84,7 +86,7 @@ Workers & 10K 0.02D & 10K 0.5D & 10K 0.8D \\ \hline
 \end{table}
 \FloatBarrier
 
-\begin{table}[]
+\begin{table}[htb!]
 \centering
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -117,4 +119,3 @@ Workers & 10K 0.02D & 10K 0.5D & 10K 0.8D \\ \hline
 \label{table:spup_dy}
 \end{table}
 \FloatBarrier
-\newpage
