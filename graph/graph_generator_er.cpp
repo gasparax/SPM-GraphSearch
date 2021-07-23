@@ -36,11 +36,11 @@ void add_edges(int n, map<int, Node*> &nodes, float density){
     }
 }
 
-void save_graph(map<int, Node*> nodes, float density){
+void save_graph(int no_nodes, map<int, Node*> nodes, float density){
     // Create and open a text file
     cout << "Starting save graph on disk\n";
     string filename = "graph_files/graph";
-    filename.append(to_string(nodes.size())).append("").append(to_string(density)).append(".txt");
+    filename.append(to_string(no_nodes).append("").append(to_string(density)).append(".txt"));
     ofstream GraphFile(filename);
     map<int, Node*>::iterator itr;
     for (itr = nodes.begin(); itr != nodes.end(); itr++){
@@ -65,19 +65,19 @@ void save_graph(map<int, Node*> nodes, float density){
 int main(int argc, char const *argv[]){
 
     if (argc < 2) cout<< "Input args-> vertex max_link\n";
-    int n = std::atoi(argv[1]);
+    int no_nodes = std::atoi(argv[1]);
     float density = std::atof(argv[2]);
 
     srand(123);
 
     //Mappa dei vertici del grafo
     std::map<int, Node*> nodes;
-    add_nodes(n,nodes);
+    add_nodes(no_nodes,nodes);
     cout << "Genero archi\n";
-    add_edges(n,nodes,density);
+    add_edges(no_nodes,nodes,density);
     map<int, Node*>::iterator itr;
 
-    save_graph(nodes, density);
+    save_graph(no_nodes, nodes, density);
 
     return 0;
 }

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.22)  22 JUL 2021 20:25
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2021.7.22)  23 JUL 2021 19:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -585,7 +585,7 @@ LaTeX Info: Redefining \nameref on input line 43.
 \openout3 = `main.out'.
 
 LaTeX Info: Redefining \Ref on input line 43.
-<frontespizio.pdf, id=52, 597.55246pt x 845.07718pt>
+<frontespizio.pdf, id=60, 597.55246pt x 845.07718pt>
 File: frontespizio.pdf Graphic file (type pdf)
 <use frontespizio.pdf>
 Package pdftex.def Info: frontespizio.pdf  used on input line 49.
@@ -594,7 +594,7 @@ File: frontespizio.pdf Graphic file (type pdf)
 <use frontespizio.pdf>
 Package pdftex.def Info: frontespizio.pdf  used on input line 49.
 (pdftex.def)             Requested size: 597.551pt x 845.07512pt.
-<frontespizio.pdf, id=55, page=1, 597.55246pt x 845.07718pt>
+<frontespizio.pdf, id=63, page=1, 597.55246pt x 845.07718pt>
 File: frontespizio.pdf Graphic file (type pdf)
 <use frontespizio.pdf, page 1>
 Package pdftex.def Info: frontespizio.pdf , page1 used on input line 49.
@@ -659,87 +659,77 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 11
 File: ts1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
 ) [3
 
-]
-<Figures/seq_schema.png, id=109, 1472.50125pt x 1120.185pt>
-File: Figures/seq_schema.png Graphic file (type png)
-<use Figures/seq_schema.png>
-Package pdftex.def Info: Figures/seq_schema.png  used on input line 32.
-(pdftex.def)             Requested size: 264.0424pt x 200.85542pt.
-<Figures/seq_comp_schema.png, id=111, 1490.56876pt x 800.9925pt>
-File: Figures/seq_comp_schema.png Graphic file (type png)
-<use Figures/seq_comp_schema.png>
-Package pdftex.def Info: Figures/seq_comp_schema.png  used on input line 40.
-(pdftex.def)             Requested size: 364.19667pt x 195.70099pt.
- [4 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/seq_schema.png>]) (c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Cap/solutions.tex [5 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/seq_comp_schema.png>]
-<Figures/par_schema.png, id=135, 2573.615pt x 1047.915pt>
+]) (c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Cap/solutions.tex [4]
+<Figures/par_schema.png, id=133, 2573.615pt x 1047.915pt>
 File: Figures/par_schema.png Graphic file (type png)
 <use Figures/par_schema.png>
 Package pdftex.def Info: Figures/par_schema.png  used on input line 16.
-(pdftex.def)             Requested size: 432.48051pt x 176.09648pt.
- [6] [7 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/par_schema.png>]
-<Figures/par_dy.png, id=152, 2573.615pt x 1047.915pt>
+(pdftex.def)             Requested size: 364.19667pt x 148.29008pt.
+ [5] [6 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/par_schema.png>]
+<Figures/par_dy.png, id=151, 2573.615pt x 1047.915pt>
 File: Figures/par_dy.png Graphic file (type png)
 <use Figures/par_dy.png>
 Package pdftex.def Info: Figures/par_dy.png  used on input line 59.
-(pdftex.def)             Requested size: 432.48051pt x 176.09648pt.
+(pdftex.def)             Requested size: 364.19667pt x 148.29008pt.
 LaTeX Font Info:    External font `lmex10' loaded for size
 (Font)              <10.95> on input line 122.
- [8 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/par_dy.png>]
-<Figures/FF.png, id=167, 1754.555pt x 1401.235pt>
-File: Figures/FF.png Graphic file (type png)
-<use Figures/FF.png>
-Package pdftex.def Info: Figures/FF.png  used on input line 178.
-(pdftex.def)             Requested size: 250.38564pt x 199.95601pt.
-) (c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Cap/results.tex [9 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/FF.png>]
-<Figures/plot_map_time_vs10K002.png, id=177, 1355.7852pt x 633.8079pt>
+ [7 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/par_dy.png>]
+
+LaTeX Warning: Reference `farm' on page 8 undefined on input line 227.
+
+[8] [9]) (c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Cap/results.tex
+<Figures/plot_map_time_vs10K002.png, id=181, 1355.7852pt x 633.8079pt>
 File: Figures/plot_map_time_vs10K002.png Graphic file (type png)
 <use Figures/plot_map_time_vs10K002.png>
-Package pdftex.def Info: Figures/plot_map_time_vs10K002.png  used on input line 22.
-(pdftex.def)             Requested size: 341.43307pt x 159.61212pt.
-<Figures/plot_map_speedup_vs10K002.png, id=178, 1355.7852pt x 633.8079pt>
+Package pdftex.def Info: Figures/plot_map_time_vs10K002.png  used on input line 23.
+(pdftex.def)             Requested size: 455.24411pt x 212.81294pt.
+<Figures/plot_map_speedup_vs10K002.png, id=182, 1355.7852pt x 633.8079pt>
 File: Figures/plot_map_speedup_vs10K002.png Graphic file (type png)
 <use Figures/plot_map_speedup_vs10K002.png>
-Package pdftex.def Info: Figures/plot_map_speedup_vs10K002.png  used on input line 30.
-(pdftex.def)             Requested size: 341.43307pt x 159.61212pt.
+Package pdftex.def Info: Figures/plot_map_speedup_vs10K002.png  used on input line 31.
+(pdftex.def)             Requested size: 455.24411pt x 212.81294pt.
  [10 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/plot_map_time_vs10K002.png>]
-<Figures/plot_map_time_vs10K05.png, id=186, 1355.7852pt x 633.8079pt>
+<Figures/plot_map_time_vs10K05.png, id=190, 1355.7852pt x 633.8079pt>
 File: Figures/plot_map_time_vs10K05.png Graphic file (type png)
 <use Figures/plot_map_time_vs10K05.png>
-Package pdftex.def Info: Figures/plot_map_time_vs10K05.png  used on input line 39.
-(pdftex.def)             Requested size: 341.43307pt x 159.61212pt.
-<Figures/plot_map_speedup_vs10K05.png, id=187, 1355.7852pt x 633.8079pt>
+Package pdftex.def Info: Figures/plot_map_time_vs10K05.png  used on input line 40.
+(pdftex.def)             Requested size: 455.24411pt x 212.81294pt.
+<Figures/plot_map_speedup_vs10K05.png, id=191, 1355.7852pt x 633.8079pt>
 File: Figures/plot_map_speedup_vs10K05.png Graphic file (type png)
 <use Figures/plot_map_speedup_vs10K05.png>
-Package pdftex.def Info: Figures/plot_map_speedup_vs10K05.png  used on input line 47.
-(pdftex.def)             Requested size: 341.43307pt x 159.61212pt.
+Package pdftex.def Info: Figures/plot_map_speedup_vs10K05.png  used on input line 48.
+(pdftex.def)             Requested size: 455.24411pt x 212.81294pt.
  [11 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/plot_map_speedup_vs10K002.png> <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/plot_map_time_vs10K05.png>]
-<Figures/plot_map_time_vs10K08.png, id=196, 1355.7852pt x 633.8079pt>
+<Figures/plot_map_time_vs10K08.png, id=201, 1355.7852pt x 633.8079pt>
 File: Figures/plot_map_time_vs10K08.png Graphic file (type png)
 <use Figures/plot_map_time_vs10K08.png>
-Package pdftex.def Info: Figures/plot_map_time_vs10K08.png  used on input line 57.
-(pdftex.def)             Requested size: 341.43307pt x 159.61212pt.
-<Figures/plot_map_speedup_vs10K08.png, id=197, 1355.7852pt x 633.8079pt>
+Package pdftex.def Info: Figures/plot_map_time_vs10K08.png  used on input line 58.
+(pdftex.def)             Requested size: 455.24411pt x 212.81294pt.
+<Figures/plot_map_speedup_vs10K08.png, id=202, 1355.7852pt x 633.8079pt>
 File: Figures/plot_map_speedup_vs10K08.png Graphic file (type png)
 <use Figures/plot_map_speedup_vs10K08.png>
-Package pdftex.def Info: Figures/plot_map_speedup_vs10K08.png  used on input line 65.
-(pdftex.def)             Requested size: 341.43307pt x 159.61212pt.
+Package pdftex.def Info: Figures/plot_map_speedup_vs10K08.png  used on input line 66.
+(pdftex.def)             Requested size: 455.24411pt x 212.81294pt.
  [12 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/plot_map_speedup_vs10K05.png> <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/plot_map_time_vs10K08.png>]) (c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Cap/conclusion.tex [13 <c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/Figures/plot_map_speedup_vs10K08.png>]) [14] (c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/main.aux)
+
+LaTeX Warning: There were undefined references.
+
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: EFDA38022388F538CE991AFF85D891A3;1608.
+(rerunfilecheck)             Checksum: 7563DA5FEEFE8A2589947088EB92E713;1903.
  ) 
 Here is how much of TeX's memory you used:
- 16320 strings out of 478994
- 245867 string characters out of 5862207
- 590200 words of memory out of 5000000
- 33420 multiletter control sequences out of 15000+600000
+ 16303 strings out of 478994
+ 245471 string characters out of 5862207
+ 590205 words of memory out of 5000000
+ 33406 multiletter control sequences out of 15000+600000
  454999 words of font info for 54 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 98i,17n,102p,926b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
-{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
-Output written on "c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/main.pdf" (14 pages, 1543258 bytes).
+ 98i,17n,102p,1120b,535s stack positions out of 5000i,500n,10000p,200000b,80000s
+{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathit.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-rm.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ec.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathex.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-mathsy.enc}{c:/texlive/2021/texmf-dist/fonts/enc/dvips/lm/lm-ts1.enc}<c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmbx12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmex10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmmi8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr6.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmr8.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmri12.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy10.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/lm/lmsy8.pfb>
+Output written on "c:/Users/nunzi/Google Drive/UNIPI/Parallel and Distributed System/Progetto/SPM-GraphSearch/Report/main.pdf" (14 pages, 1245765 bytes).
 PDF statistics:
- 285 PDF objects out of 1000 (max. 8388607)
- 222 compressed objects within 3 object streams
+ 289 PDF objects out of 1000 (max. 8388607)
+ 232 compressed objects within 3 object streams
  50 named destinations out of 1000 (max. 500000)
- 172 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 173 words of extra memory for PDF output out of 10000 (max. 10000000)
 

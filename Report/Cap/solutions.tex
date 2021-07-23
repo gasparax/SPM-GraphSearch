@@ -13,7 +13,7 @@ To synchronize the farm with the collector the workers perform a $fetch\_add$ op
 
 \begin{figure}[htb!]
     \centering
-    \includegraphics[width=0.95\textwidth]{Figures/par_schema.png}
+    \includegraphics[width=0.8\textwidth]{Figures/par_schema.png}
     \caption{Schema of the static scheduling solution.}
     \label{fig:bfs_par_1_schema}
 \end{figure}
@@ -56,7 +56,7 @@ To monitor the execution, also in this case, is used the $end\_of\_task$ variabl
 
 \begin{figure}[htb!]
     \centering
-    \includegraphics[width=0.95\textwidth]{Figures/par_dy.png}
+    \includegraphics[width=0.8\textwidth]{Figures/par_dy.png}
     \caption{Schema of the dynamic scheduling solution.}
     \label{fig:bfs_par_2_schema}
 \end{figure}
@@ -97,12 +97,12 @@ NW \\ \hline
 \begin{tabular}{|c|c|c|}
 \hline
  10K 0.02D & 10K 0.5D & 10K 0.8D \\ \hline
- 398       & 411      & 552      \\ \hline
-905       & 325      & 47       \\ \hline
- 1299      & 665      & 466      \\ \hline
-1091      & 1284     & 1738     \\ \hline
-1524      & 712      & 1524     \\ \hline
-1631      & 1460     & 1464     \\ \hline
+ 398       & 411      & 395      \\ \hline
+658       & 549     & 592       \\ \hline
+ 788      & 879      & 786      \\ \hline
+ 859      & 1284     & 869     \\ \hline
+ 1304      & 1209      & 1266 \\ \hline
+ 2023      & 2159     & 2027 \\ \hline
 \end{tabular}
 
 \end{minipage}
@@ -112,14 +112,14 @@ NW \\ \hline
 \hline
  10K 0.02D & 10K 0.5D & 10K 0.8D \\ \hline
 149       & 126      & 38       \\ \hline
-238       & 149      & 898      \\ \hline
+238       & 149      & 44      \\ \hline
 270       & 330      & 77       \\ \hline
 290       & 171      & 77       \\ \hline
 359       & 230      & 359      \\ \hline
 461       & 335      & 52       \\ \hline
 \end{tabular}
 \end{minipage}
-\caption{Total time ($\mu sec$) spend by Emitter and Collector in $\mu sec$, static solution.}
+\caption{Total time ($\mu sec$) spent by Emitter and Collector in $\mu sec$, static solution.}
 \label{table:emit_coll}
 \end{table}
 
@@ -145,9 +145,9 @@ NW \\ \hline
 10K 0.02D & 10K 0.5D & 10K 0.8D \\ \hline
 1137       & 565      & 602      \\ \hline
 1524       & 1091     & 899      \\ \hline
-1465       & 2014     & 1131     \\ \hline
+1465       & 1491     & 1131     \\ \hline
 2398      & 1940      & 2120     \\ \hline
-2614      & 2211     & 1047     \\ \hline
+2614      & 2211     & 3045     \\ \hline
 7947      & 6751     & 3645     \\ \hline
 \end{tabular}
 \end{minipage}
@@ -164,19 +164,67 @@ NW \\ \hline
 188       & 165      & 75       \\ \hline
 \end{tabular}
 \end{minipage}
-\caption{Total time ($\mu sec$) spend by Emitter and Collector in $\mu sec$, dynamic solution with 32 of chunk size.}
+\caption{Total time ($\mu sec$) spent by Emitter and Collector in $\mu sec$, dynamic solution with 32 of chunk size.}
 \label{table:emit_coll_dy}
 \end{table}
 \FloatBarrier
 
+\begin{table}[!htb]
+    \centering
+    \begin{minipage}{0.08\textwidth}
+    \centering
+    \begin{tabular}{|c|}
+    \hline
+    NW \\ \hline
+    1          \\ \hline
+    2      \\ \hline
+    4           \\ \hline
+    8            \\ \hline
+    16       \\ \hline
+    32          \\ \hline
+    \end{tabular}
+    \end{minipage} 
+\begin{minipage}{0.43\textwidth}
+\centering
+\begin{tabular}{|c|c|c|}
+    \hline
+    10K 0.02D & 10K 0.5D & 10K 0.8D \\ \hline
+    362       & 567      & 373      \\ \hline
+    423       & 682      & 426      \\ \hline
+    659       & 609      & 503      \\ \hline
+    1153      & 617      & 514      \\ \hline
+    1185      & 694      & 519      \\ \hline
+    1372      & 1332     & 525      \\ \hline
+\end{tabular}
+\end{minipage}
+\caption{Total time ($\mu sec$) spent by Emitter Collector in $\mu sec$, Fast Flow solution.}
+\label{table:emit_coll_ff}
+\end{table}
+\FloatBarrier
 
 \subsection{Fast Flow Solution}
-The Fast Flow solution is based on the same reasoning of the first C++ STL solution (\ref{subsec:CStatic}), in particular, it has been implemented using a farm in which has been removed the collector and added for each worker feedback channel to the emitter. For data communication has been used a personalized task struct in which is present a pair that indicates the start and the end position of the chunk and a next frontier vector. Similar to the first C++ version,  the load balancing is static but in this case, the scheduling exploits the Round Robin algorithm embedded in Fast Flow.
+The Fast Flow solution is based on the same reasoning of the first C++ STL solution (\ref{subsec:CStatic}), in particular, it has been implemented using a farm in which has been removed the collector and added for each worker feedback channel to the emitter. For data communication has been used a personalized task struct in which is present a pair that indicates the start and the end position of the chunk and a next frontier vector. Similar to the first C++ version,  the load balancing is static but in this case, the scheduling exploits the Round Robin algorithm embedded in Fast Flow. The table \ref{table:emit_coll_ff} shown the emitter times for all the three graphs, and they look similar to the ones obtained in the pthread verion with static scheduling 
 
-\begin{figure}[htb!]
+\subsection{Farm Overhead Analysis}
+The use of parallelization brings with it additional computation due to the management of communication and synchronization data structures for managing all the entities involved.
+After analyzing the overhead added with the use of the emitter and collector in the previous section, the current one will show the comparison between the ideal and real frontier analysis times and involved overhead. In particular, analyzing the farms of the two using ptheads versions.
+
+\begin{table}[!htb]
     \centering
-    \includegraphics[width=0.55\textwidth]{Figures/FF.png}
-    \caption{Schema of the Fast Flow solution.}
-    \label{fig:FF}
-\end{figure}
-\FloatBarrier
+    \begin{tabular}{cc|c|c|}
+    \cline{3-4}
+    \multicolumn{1}{l}{}          & \multicolumn{1}{l|}{} & \multicolumn{1}{l|}{Static Scheduling} & \multicolumn{1}{l|}{Dynamic Scheduling} \\ \hline
+    \multicolumn{1}{|c|}{}        & Ideal                 & Real                                   & Real                                    \\ \hline
+    \multicolumn{1}{|c|}{Workers} & \multicolumn{3}{c|}{10K 0.5D}                                                                            \\ \hline
+    \multicolumn{1}{|c|}{2}       & 45490                 & 73853                                  & 58180                                   \\ \hline
+    \multicolumn{1}{|c|}{4}       & 22745                 & 50489                                  & 29807                                   \\ \hline
+    \multicolumn{1}{|c|}{8}       & 11372                 & 34996                                  & 14532                                   \\ \hline
+    \end{tabular}
+    \caption{Farm ideal time vs real time ($\mu sec$), on a frontier of 6460 nodes.}
+    \label{table:farm_overhead}
+\end{table}
+
+Compared to the ideal times (Table \ref{farm}) we see a deterioration in performance, 
+in the case of the static version, this is due mainly to a bad load balancing that, as anticipated in the previous section, creates a bottleneck in the farm. In the dynamic version, instead, the times improve notably and leading near to the ideal ones. In this case, eliminating the noise due to load balancing, making it easier to detect the overhead. Overhead that is mainly due to both the code needed for communication between the emitter and the workers and the need to perform atomic operations to properties that allow a correct and synchronized visit of the graph. The communication is managed through a queue and so the worker to starts the computation on a chunk needs to perform a pop creating overhead. Using a shared queue cause also a \textbf{false sharing} problem due to the continuous changing of the queue state from other threads, triggering the \textbf{cache coherence protocols} that updates the threads' cache content producing overhead. 
+The cases in which the atomic property is used: to check if the node has been visited and to update the $end\_of\_task$ variable. Both these two operations produce slight overhead because the first one is performed when there are duplicates in the frontier and so very rarely, and the second, being just an increment is executed pretty quickly by the workers.
+\newpage

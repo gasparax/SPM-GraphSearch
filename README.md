@@ -1,6 +1,6 @@
 # SPM-Graph Search
 
-Project for SMP Exam 2020/21. Parallel version of BFS. 
+Project for SP; Exam 2020/21. Parallel version of BFS. 
 ---
 In order to compile and run the solution follow the next steps:
 
@@ -60,7 +60,7 @@ In order to compile and run the solution follow the next steps:
 
     ---
 
-    For all the three C++ pthread solution there is the possibility to run with the code multiple times with a max number of worker or with timer for each step of the execution. 
+    For all the three solutions there is the possibility to run with the code multiple times with a max number of worker or with timer for each step of the execution. 
 
     Its enough to execute the make command with the "_mul" or "_timer":
 
