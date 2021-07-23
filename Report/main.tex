@@ -1,0 +1,92 @@
+ % !TEX encoding = UTF-8
+
+\documentclass[12pt,a4paper,oneside]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8x]{inputenc} %per usare e vedere le lettere accentate
+\usepackage[english]{babel}
+\usepackage[margin=2.5cm]{geometry}
+\usepackage{setspace} %%per modificare interlinea
+\onehalfspacing %%interlinea 1.5
+\usepackage{pdfpages} %per aggiungere i file in pdf come il frontespizio
+\pdfoptionpdfminorversion=7  %per eliminare warning sulla versione 1.7 del frontespizio
+\usepackage{graphicx} %per aggiungere immagini
+\graphicspath{{immagini/}} %path
+\usepackage{flafter} % per impedire che le figure appaiano prima della loro citazione (attenzione: definirle cmq dopo la citazione)
+\usepackage[font={small,it}]{caption} %per le didascalie delle figure (piccole e corsivo)
+\usepackage[nottoc]{tocbibind} %per aggiugere la bibliografia all'indice (con numero di pagina)
+\usepackage{url} %per usare url nella bibliografia
+\usepackage{emptypage} %per evitare piè di pagina e testatine nelle pagine bianche
+\usepackage{lmodern}
+\usepackage[section]{placeins}  %per bloccare le figure nelle section e subsection relative (a fine section o subsection bisogna aggiungere \FloatBarrier)
+\usepackage{cite}
+\usepackage[listofformat=parens]{subfig} %per le sottofigure
+% [listofformat=parens] serve per far comparire 1(a) quando uso \subref per chiamare la label della sottofig
+\hyphenation{ImageNet label} %non voglio che vengano sillabate
+\usepackage[english]{varioref} %cross-reference in italiano (figura tot a pagina tot)
+\usepackage{adjustbox} %per poter aggiustare la tabella dell'architettura di vgg
+\usepackage{amsmath}
+\usepackage{algpseudocode}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage[pagebackref]{hyperref}
+
+\makeatletter
+\def\BState{\State\hskip-\ALG@thistlm}
+\makeatother
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\renewcommand{\headrulewidth}{0pt}
+
+\begin{document}
+%\setcounter{secnumdepth}{5}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+\author{Nunzio Lopardo}
+\date{\today}
+\includepdf[pages={1}]{frontespizio.pdf}  
+%\renewcommand{\figurename}{Figura} % cambio nome da Figure a Figura
+%\renewcommand\contentsname{Indice} % rinomina indice
+%\renewcommand{\cftsecleader}{\cftdotfill{\cftdotsep}} % per i punti nell'indice
+% part\chapter\chapter\subchapter\subsubchapter\paragraph\subparagraph
+
+%\frontmatter %pagine numerate con i numeri romani minuscoli e cap non numerati
+\tableofcontents %%faccio comparire l'indice
+\cleardoublepage %%interruzione di pagina
+
+\section{Introduction}
+\label{ch:intro}
+\input{Cap/intro.tex}
+
+
+\section{Problem Analysis}
+\label{ch:problem}
+\input{Cap/problem}
+
+\section{Proposed Solutions}
+\label{ch:solutions}
+\input{Cap/solutions}
+
+\section{Results Analysis}
+\label{ch:results}
+\input{Cap/results.tex}
+
+\section{Conclusion}
+\label{ch:conclusion}
+\input{Cap/conclusion.tex}
+
+
+%\let\cleardoublepage\clearpage %per togliere solo qui la pagina bianca che si crea
+%\renewcommand\bibname{Webography} 
+%\begin{thebibliography}{0}
+%\setcounter{enumiv}{0} 
+
+%\bibitem{url1} NetworkX
+%\url{https://networkx.github.io/}
+
+
+
+%\end{thebibliography}
+\end{document}
