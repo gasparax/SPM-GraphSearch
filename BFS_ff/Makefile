@@ -7,6 +7,7 @@ CXXFLAGS = -std=c++17 -pthread -g
 IFLAG = -c -Wall -I$(INC_DIR) -I$(FF_ROOT) -fpermissive
 OFLAGS = -O3
 MUL = -DMUL
+TIMER = -DTIMER
 
 
 BFS_ff: BFS_ff.o graphfile_manager.o Node.o  
@@ -20,6 +21,12 @@ BFS_ff_mul: BFS_ff_mul.o Node.o graphfile_manager.o
 
 BFS_ff_mul.o: BFS_ff.cpp Node.o graphfile_manager.o
 	$(CXX) $(CXXFLAGS) $(MUL) $(OFLAGS) $(IFLAG) BFS_ff.cpp -o BFS_ff_mul.o
+
+BFS_ff_timer: BFS_ff_timer.o Node.o graphfile_manager.o 
+	$(CXX) $(CXXFLAGS) $(OFLAGS) -o BFS_ff BFS_ff_timer.o Node.o graphfile_manager.o
+
+BFS_ff_timer.o: BFS_ff.cpp Node.o graphfile_manager.o
+	$(CXX) $(CXXFLAGS) $(TIMER) $(OFLAGS) $(IFLAG) BFS_ff.cpp -o BFS_ff_timer.o
 
 Node.o: $(INC_DIR)
 	$(CXX) $(CXXFLAGS) $(OFLAGS) -c $(INC_DIR)Node.cpp

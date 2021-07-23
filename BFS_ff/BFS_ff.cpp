@@ -40,9 +40,16 @@ struct Emitter: ff_monode_t<Task> {
     vector<Node*> &frontier;
     vector<Node*> next_frontier;
     int emitted_task = 0;
+#if TIMER
+    long frontier_time  = 0;
+    vector<long> times;
+#endif
     Emitter(uint nw, vector<Node*>& frontier) : nw(nw), frontier(frontier){}
     
     Task* svc(Task* in){
+#if TIMER
+        utimer timer("");
+#endif
         if (in == nullptr) {
             int chunk_size = ceil((double)frontier.size()/nw);
             uint start_pos = 0;
@@ -60,6 +67,11 @@ struct Emitter: ff_monode_t<Task> {
                     end_pos = frontier.size();
                 } 
             }
+#if TIMER
+            frontier_time+=timer.getElapsedTime();
+            times.push_back(frontier_time);
+            frontier_time = 0;
+#endif
             return GO_ON;
         }
         auto V = in->next_frontier;
@@ -73,6 +85,17 @@ struct Emitter: ff_monode_t<Task> {
             if (next_frontier.empty()) {
 #if MUL
 #else
+#if TIMER
+            acout() <<"------------------------------------------------------------------------\n";            
+            acout() <<"Emitter\n";
+            long tot = 0;
+            for (size_t i = 0; i < times.size(); i++) {
+                tot = tot + times[i];
+                acout() << "Frontier " << i + 1 << " -> " << times[i] << " ms"<< endl;
+            }
+            acout() <<"Total time " << tot << endl;
+            acout() <<"------------------------------------------------------------------------\n";      
+#endif 
                 acout() << "Found -> " << counter << endl;
 #endif
                 broadcast_task(EOS);
@@ -95,8 +118,16 @@ struct Emitter: ff_monode_t<Task> {
                     end_pos = frontier.size();
                 }   
             }
+#if TIMER
+            frontier_time+=timer.getElapsedTime();
+            times.push_back(frontier_time);
+            frontier_time = 0;
+#endif
             return GO_ON;
         } else {
+#if TIMER
+            frontier_time+=timer.getElapsedTime();
+#endif
             return GO_ON;
         }
     }
@@ -106,12 +137,17 @@ struct Worker: ff_node_t<Task> {
 
     int value;
     vector<Node*> &frontier;
-    Worker(int value, vector<Node*>& frontier) : value(value), frontier(frontier) {}
-    
+#if TIMER
+    vector<long> times;
+#endif
+    Worker(int value, vector<Node *> &frontier) : value(value), frontier(frontier) {}
+
     Task* svc(Task * task) {
+#if TIMER
+        utimer timer("");
+#endif
         int local_counter = 0;
         if(!frontier.empty()) {
-            vector<Node*> next_frontier;
             unsigned start_pos = task->chunk_size.first;
             unsigned end_pos = task->chunk_size.second;
             for (uint i = start_pos; i < end_pos; i++) {
@@ -122,14 +158,25 @@ struct Worker: ff_node_t<Task> {
                 for (Node* nb : node->get_neighbours()) {
                     if (nb->discovered) continue;
                     nb->discovered = true;
-                    next_frontier.push_back(nb);
+                    task->next_frontier.push_back(nb);
                 }
             }
-            task->next_frontier.swap(next_frontier);
             task->counter = local_counter;
             ff_send_out(task);
+#if TIMER
+            times.push_back(timer.getElapsedTime());
+#endif
             return GO_ON;
+        } else if (task == EOS) {
+#if TIMER
+            acout() <<"------------------------------------------------------------------------\n";            
+            for (size_t i = 0; i < times.size(); i++) {
+                acout() << "Frontier " << i + 1 << times[i]<< endl;
+            }
+            acout() <<"------------------------------------------------------------------------\n";      
+#endif      
         }
+        
         return GO_ON;
     }
 };
@@ -190,7 +237,6 @@ int main(int argc, char const *argv[]){
         long sum = 0;
         for (uint z = 0; z < times_run.size(); z++) {
             long time = times_run[z];
-            cout << time << endl;
             sum += time;
         }
         long avg = sum / times_run.size();
