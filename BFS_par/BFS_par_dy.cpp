@@ -44,6 +44,8 @@ void source2farm(vector<Node*> &frontier,
   long total_elapsed = 0;
   pair<int, long> max_time;
   vector<pair<int, long>> times;
+  vector<long> emitt_times;
+  long emitt_time = 0;
 #endif
   while (true) {
     std::unique_lock<std::mutex> lk(mtx);
@@ -67,6 +69,7 @@ void source2farm(vector<Node*> &frontier,
           acout() << "Frontier " << times[i].first <<" time -> " << times[i].second << endl;
         }
         acout() << "Total emitter time -> " << total_elapsed << endl;
+        acout() << "Total push time -> " << emitt_time << endl;
         acout() << "Max emitter time -> Frontier " << max_time.first << " " << max_time.second << endl;
         acout() << "AVG emitter time -> " << total_elapsed/frontier_step << endl;
         acout() << "--------------------------------------------------------------------------------------\n";
@@ -80,7 +83,7 @@ void source2farm(vector<Node*> &frontier,
       while (end_pos <= frontier.size()) {
         pair<int, int> w_pair(start_pos, end_pos);
         end_of_task.fetch_add(1);
-        qin.push(w_pair); 
+        qin.push(w_pair);
         start_pos = end_pos;
         end_pos += chunk_size;
         if (start_pos < frontier.size() && end_pos >= frontier.size())
@@ -119,6 +122,7 @@ void genericfarmstage(vector<Node *> &frontier,
   pair<int, long> max_time;
   vector<pair<int, long>> times;
   vector<long> frontier_times;
+  long pop_time = 0;
   frontier_times.push_back(0);
   int actual_frontier = 0;
   vector<int> frontier_sizes;
@@ -127,7 +131,18 @@ void genericfarmstage(vector<Node *> &frontier,
 #endif
   while (true) {
     if (!qin.empty()){
-      pair<int, int> input_pair = qin.pop();
+      
+      pair<int, int> input_pair;
+#if TIMER
+      {
+        string w = "pop W ";
+        utimer tim(w.append(to_string(id)).append(" ->"));
+        input_pair = qin.pop();
+        pop_time+=tim.getElapsedTime();
+      }
+#else
+      input_pair = qin.pop();
+#endif
       if (input_pair == STOP_EXE) {
         counter += local_counter;
 #if TIMER
@@ -143,6 +158,7 @@ void genericfarmstage(vector<Node *> &frontier,
         }
         acout() << "Worker " << id << " New nodes " << new_nodes << endl;
         acout() << "Worker " << id << " Total time -> " << total_elapsed << endl;
+        acout() << "Total pop time -> " << pop_time << endl;
         acout() << "Worker " << id << " Max time -> Chunk " << max_time.first << " Time " << max_time.second << endl;
         acout() << "Worker " << id << " AVG time -> " << total_elapsed/chunk_step << endl;
         acout() << "--------------------------------------------------------------------------------------\n";
@@ -265,8 +281,8 @@ void drainfarm(vector<vector<Node*>> &qout, vector<Node *> &frontier, atomic<int
 void farm(map<int, Node*> nodes, int id_starter, int value, int nw, float chunk_size, vector<long>& times)
 {
   vector<Node *> frontier;
-  myqueue<pair<int, int>> qin; // input deques for the workers
-  vector<vector<Node *>> qout(nw);         // input deques for the workers
+  myqueue<pair<int, int>> qin; // input deque for the workers
+  vector<vector<Node *>> qout(nw);
   atomic<int> end_of_task(0);
   atomic<int> counter(0);
   atomic<int> frontier_step(0);
@@ -324,7 +340,7 @@ void save_results(vector<long> times, int no_nodes){
     string filename = "results/results_BFS_map_dy_";
     filename.append(to_string(no_nodes)).append(".txt");
     ofstream resultsFile(filename);
-    for (uint i = 0; i < times.size(); i++){
+    for (unsigned i = 0; i < times.size(); i++){
         //cout << node->id << endl;
         //Write on the file
         string file_row = to_string(i+1);

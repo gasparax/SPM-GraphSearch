@@ -75,7 +75,7 @@ Using a dynamic approach for task management the load balancing is distributed e
 \caption{Load balancing of analysis, with dynamic scheduling, of the first frontier graph 10K 0.5 density}
 \end{table}
 
-The considerable gain in terms of load balancing removing the bottlenecks in the execution of the farm is counterbalanced by a increase time of the emitter $T_e$, as can been seen in the following tables \ref{table:emit_coll} and \ref{table:emit_coll_dy}. The chunk size plays an important role, indeed, having small chunks improves the load balancing but the splitting time would increase dramatically, so it's important to find the trade-off. In addition, For large chunk sizes, in the case of small tiers, it might be possible to generate less than $nw$ portions and thus not fully exploit the farm.
+The considerable gain in terms of load balancing removing the bottlenecks in the execution of the farm is counterbalanced by a increase time of the emitter $T_e$, as can been seen in the following tables \ref{table:emit_coll} and \ref{table:emit_coll_dy}. The chunk size plays an important role, indeed, having small chunks improves the load balancing but the splitting time would increase dramatically, so it's important to find the trade-off. In addition, For large chunk sizes, in the case of small frontiers, it might be possible to generate less than $nw$ portions and thus not fully exploit the farm.
 
 \begin{table}[!htb]
 \centering

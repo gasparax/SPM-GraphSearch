@@ -334,7 +334,7 @@ void save_results(vector<long> times, int no_nodes){
     string filename = "results/results_BFS_map_";
     filename.append(to_string(no_nodes)).append(".txt");
     ofstream resultsFile(filename);
-    for (uint i = 0; i < times.size(); i++){
+    for (unsigned i = 0; i < times.size(); i++){
         //cout << node->id << endl;
         //Write on the file
         string file_row = to_string(i+1);
